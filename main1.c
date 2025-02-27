@@ -4,14 +4,14 @@ int main() {
     int i = 3101;
     int additional = i - 1500;
     if (additional <= 0) {
-        printf("70元\");
+        printf("70元\n");
     } else if (additional <= 100) {
-          printf("80元\");
+          printf("80元\n");
     } else {
           int count = additional / 100;
           int remainder = (additioinal % 100)?1:0;
           int sum = (count+remainder) * 10 + 70;
-          printf("%元\n", sum);
+          printf("%d元\n", sum);
     }
 
     return 0;
