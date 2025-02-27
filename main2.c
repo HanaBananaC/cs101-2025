@@ -7,7 +7,7 @@ int main() {
 
     while (i>=10) {
         i/=10;
-        first = 1%10;
+        first = i%10;
     }
     printf("first %d + last %d = %d", first, last, first+last);
     return 0;
