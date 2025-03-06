@@ -1,50 +1,41 @@
 #include <stdio.h>
+#include <stdio.h>
+
 
 int main() {
     FILE *fp;
     
-    int a[] = {0, 1, 2};
-    char b[] = "ABC";
-    float c[] = {1.1, 1.2, 1.3};
+    int arr_writea[3] = {0, 1, 2};
+    char arr_writeb[3] = {'A', 'B', 'C'};
+    float arr_writec[3] = {1.1, 1.2, 1.3};
 
-    fp = fopen("a.bin", "wb");
-    if (fp == NULL) {
-        printf("檔案開啟失敗\n");
-        return 1;
-    }
-    fwrite(a, sizeof(int), 3, fp);
-    fwrite(b, sizeof(char), 3, fp);
-    fwrite(c, sizeof(float), 3, fp);
-    fclose(fp);
+    int arr_reada[3];
+    char arr_readb[3];
+    float arr_readc[3];
 
-    int a_read[3];
-    char b_read[4] = "";  // 字串結尾要多一個 '\0'
-    float c_read[3];
+    fp = fopen("a.bin", "wb+") ;
+    fwrite(arr_writea, sizeof(arr_writea), 3, fp);
+    fwrite(arr_writeb, sizeof(arr_writeb), 3, fp);
+    fwrite(arr_writec, sizeof(arr_writec), 3, fp);
 
-    fp = fopen("a.bin", "rb");
-    if (fp == NULL) {
-        printf("檔案開啟失敗\n");
-        return 1;
-    }
-    fread(a_read, sizeof(int), 3, fp);
-    fread(b_read, sizeof(char), 3, fp);
-    fread(c_read, sizeof(float), 3, fp);
-    fclose(fp);
+    fseek(fp, 0, SEEK_SET);
 
-    // 輸出結果
-    printf("讀取後的陣列內容：\n");
+    fread(arr_reada, sizeof(arr_reada), 3, fp);
+    fread(arr_readb, sizeof(arr_readb), 3, fp) ;
+    fread(arr_readc, sizeof(arr_readc), 3, fp);
 
-    printf("int 陣列: ");
     for (int i = 0; i < 3; i++) {
-        printf("%d ", a_read[i]);
+        printf("%d ", arr_reada[i]);
     }
     printf("\n");
 
-    printf("char 陣列: %s\n", b_read);
-
-    printf("float 陣列: ");
     for (int i = 0; i < 3; i++) {
-        printf("%.6f ", c_read[i]);  // 保持精確輸出
+        printf("%c ", arr_readb[i]);
+    }
+    printf("\n");
+
+    for (int i = 0; i < 3; i++) {
+        printf("%.6f ", arr_readc[i]);
     }
     printf("\n");
 
