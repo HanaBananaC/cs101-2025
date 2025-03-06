@@ -3,12 +3,10 @@
 int main() {
     FILE *fp;
     
-    // 原始陣列
     int a[] = {0, 1, 2};
     char b[] = "ABC";
     float c[] = {1.1, 1.2, 1.3};
 
-    // 開啟檔案進行二進位寫入
     fp = fopen("a.bin", "wb");
     if (fp == NULL) {
         printf("檔案開啟失敗\n");
@@ -19,7 +17,6 @@ int main() {
     fwrite(c, sizeof(float), 3, fp);
     fclose(fp);
 
-    // 讀取資料
     int a_read[3];
     char b_read[4] = "";  // 字串結尾要多一個 '\0'
     float c_read[3];
