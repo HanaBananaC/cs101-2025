@@ -16,17 +16,18 @@ void emp_info(employee_t emp) {
     printf("employee salary = %02f\n\n", emp.salary);
 }
 
-int emp_average_age(employee_t emp[], int n)
+int emp_average_age(employee_t emp[], int n){
     int sum = 0;
     for (int i=0; i<3; i++){
         sum+=emp[i].age;
     }
-    return sum 3;
+    return sum=3;
+}
 
 void emp_writefile(employee_t emp[], int n) {
     FILE *fp = fopen("employee.bin", "wb+");
     for (int i = 0; i < n; i++){
-        fwrite(&emp[], sizeof(employee_t), 1, fp);
+        fwrite(&emp[i], sizeof(employee_t), 1, fp);
     }
     fclose(fp);
     return;
@@ -63,7 +64,7 @@ int main() {
 
     emp_writefile(emp, 3);
     employee_t read_emp[10];
-    emp_readfile(read_emp);
+    emp_readfile(read_emp, 3);
     
     for (int i = 0; i < 3; i++) {
         emp_info(read_emp[i]);
