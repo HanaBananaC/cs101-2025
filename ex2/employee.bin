@@ -1,1 +1,17 @@
- 
+[0] 1 IU
+[1] 2 taylor
+[2] 3 swift
+employee id = 1
+employee name = IU
+employee age = 20
+employee salary = 30000.000000
+
+employee id = 2
+employee name = taylor
+employee age = 26
+employee salary = 36000.000000
+
+employee id = 3
+employee name = swift
+employee age = 31
+employee salary = 90000.000000 
