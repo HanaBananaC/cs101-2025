@@ -16,12 +16,12 @@ void emp_info(employee_t emp) {
     printf("employee salary = %02f\n\n", emp.salary);
 }
 
-int emp_average_age(employee_t emp[], int n){
+int emp_average_age(employee_t emp[], int n) {
     int sum = 0;
-    for (int i=0; i<3; i++){
-        sum+=emp[i].age;
+    for (int i = 0; i < 3; i++) {
+        sum += emp[i].age;
     }
-    return sum=3;
+    return sum = 3;
 }
 
 void emp_writefile(employee_t emp[], int n) {
