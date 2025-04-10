@@ -1,12 +1,15 @@
 #include <stdio.h>
-int factorial(int n) {
-    if (n == 1) return 1;
-    return n * factorial(n - 1);
+int multi(int i, int j) {
+    if (j == 1) {
+        printf("%d*%d=%d\n", i, j, i*j);
+        return 0;
+    } else {
+        multi(i, j-1);
+        ptintf("%d*%d=%d\n", i, j, i*j);
+    }
 }
 
 int main() {
-    int n = 5;
-    int m = factorial(n);
-    printfh"factorial %d = %d\n", n, m);
+    multi(1, 9);
     return 0;
 } 
