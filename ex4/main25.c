@@ -1,22 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
-
-int mulit(int i,int j){
-	if(i>9){
-		return;
-	}
-	if(j>9){
-		printf("\n");
-		mulit(i+1,1);
-	}else{
-		printf("%d*%d=%d\t",i,j,i*j);
-		mulit(i,j+1);
-	}
-	
+int my_strlen(char* s) {
+    if (!*s) return 0;
+		  return 1 + my_strlen(s+1);
 }
-
-int main(){
-	mulit(1,1);
-	
-	return 0;
-} 
+int main() {
+    char s[] = "IU is a girl!";
+				printf("(%s) len = %d\n", s, my_strlen(s));
+				return 0;
+}
